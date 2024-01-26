@@ -1,5 +1,5 @@
 from sqlalchemy import Column, Integer, String
-from ..base import Base  # Importa la clase base de SQLAlchemy
+from db.base import Base  # Importa la clase base de SQLAlchemy
 
 class User(Base):  # Hereda de la clase Base
     __tablename__ = "users"

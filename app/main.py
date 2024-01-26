@@ -1,8 +1,8 @@
 from fastapi import FastAPI
-from .db.session import engine  # Importar 'engine' desde 'db.session'
-from .db.base import Base       # Importar 'Base'
-from .db import models          # Importar 'models'
-from .api.endpoints import user as user_endpoint
+from db.session import engine  # Importar 'engine' desde 'db.session'
+from db.base import Base       # Importar 'Base'
+from db import models          # Importar 'models'
+from api.endpoints import user as user_endpoint
 
 app = FastAPI()
 

@@ -1,7 +1,7 @@
 from sqlalchemy.orm import Session
 from typing import List
-from db.models.user import User
-from schemas.user import UserCreate
+from app.db.models.user import User
+from app.schemas.user import UserCreate
 from passlib.context import CryptContext
 
 # Inicializamos passlib con bcrypt

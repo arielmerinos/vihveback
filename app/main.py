@@ -1,8 +1,9 @@
 from fastapi import FastAPI
-from db.session import engine  # Importar 'engine' desde 'db.session'
-from db.base import Base       # Importar 'Base'
-from db import models          # Importar 'models'
-from api.endpoints import user as user_endpoint
+from app.db.session import engine  # Importar 'engine' desde 'db.session'
+from app.db.base import Base       # Importar 'Base'
+from app.db import models          # Importar 'models'
+from app.api.endpoints import user as user_endpoint
+from app.api.endpoints import room as room_endpoint
 
 app = FastAPI()
 
@@ -15,3 +16,4 @@ async def root():
     return {"message": "Hello World"}
 
 app.include_router(user_endpoint.router)
+app.include_router(room_endpoint.router)

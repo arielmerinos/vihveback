@@ -8,6 +8,14 @@ class UserCreate(BaseModel):
     email: EmailStr
     password: str
     password_confirmation: str
+    username: str
+    profile_picture: Optional[HttpUrl] = None
+    bio: Optional[str] = None
+    is_public_profile: Optional[bool] = True
+    status: Optional[str] = 'active'
+    role: Optional[str] = 'user'
+    notification_settings: Optional[str] = None
+    language_preference: Optional[str] = 'es'
 
     @validator('password')
     def password_complexity(cls, v):
@@ -33,16 +41,16 @@ class UserRead(BaseModel):
     id: int
     name: str
     email: EmailStr
-    username: str
-    profile_picture: HttpUrl
-    bio: str
+    username: Optional[str] = None  # Haciendo este campo opcional
+    profile_picture: Optional[HttpUrl] = None  # Haciendo este campo opcional
+    bio: Optional[str] = None  # Haciendo este campo opcional
     date_joined: datetime
-    last_login: datetime
+    last_login: Optional[datetime] = None  # Haciendo este campo opcional
     is_public_profile: bool
     is_online: bool
-    status: str
-    role: str
-    notification_settings: str
+    status: Optional[str] = None  # Haciendo este campo opcional
+    role: Optional[str] = None  # Haciendo este campo opcional
+    notification_settings: Optional[str] = None  # Haciendo este campo opcional
     language_preference: str
 
 

@@ -22,4 +22,4 @@ class User(Base):  # Hereda de la clase Base
     language_preference = Column(String, default='en')
 
         # Relación uno a muchos: un usuario puede tener muchos posts
-    # posts = relationship("Post", back_populates="usuario")
+    posts = relationship("Post", back_populates="user")

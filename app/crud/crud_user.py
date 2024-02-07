@@ -1,3 +1,4 @@
+import datetime
 from sqlalchemy.orm import Session
 from typing import List
 from app.db.models.user import User
@@ -22,7 +23,20 @@ def get_user_by_email(db: Session, email: str) -> User:
 def create_user(db: Session, user: UserCreate) -> User:
     # Create a new user with hashed password
     hashed_password = hash_password(user.password)
-    db_user = User(name=user.name, email=user.email, hashed_password=hashed_password)
+    db_user = User(
+        name=user.name, 
+        email=user.email, 
+        hashed_password=hashed_password,
+        username=user.username,
+        profile_picture=str(user.profile_picture),
+        bio=user.bio,
+        is_public_profile=user.is_public_profile,
+        status=user.status,
+        role=user.role,
+        notification_settings=user.notification_settings,
+        language_preference=user.language_preference,
+        last_login=datetime.datetime.utcnow()
+        )
     try:
         db.add(db_user)
         db.commit()

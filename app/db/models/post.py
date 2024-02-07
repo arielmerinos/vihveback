@@ -1,6 +1,6 @@
 from sqlalchemy import Column, Integer, String, Boolean, DateTime, ForeignKey
 from sqlalchemy.orm import relationship
-from base import Base  # Importa la clase base de SQLAlchemy
+from app.db.base import Base  # Importa la clase base de SQLAlchemy
 from datetime import datetime
 
 class Post(Base):
@@ -17,5 +17,5 @@ class Post(Base):
     language = Column(String, default='es')
 
     # Relación muchos a uno: un post pertenece a un usuario
-    usuario = relationship("Usuario", back_populates="posts")
+    user = relationship("User", back_populates="posts")
 # Path: app/db/models/user.py
